@@ -33,6 +33,3 @@ for k in primes:
 tEnd = time.clock()
 
 print(tEnd - tStart)
-
-        
- 
