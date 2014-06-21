@@ -7,26 +7,32 @@ from EulerMethods import EulerMethodsClass
 import math
 import time
 
-eMethods = EulerMethodsClass()
-
-primeFactors = []
-
 #targetNumber = 600851475143;
-targetNumber = 13195
-i = 1
-
 tStart = time.clock()
-while i < math.ceil(targetNumber/2):
-    if targetNumber % i == 0:
-        if eMethods.isPrime(i):
-            print(i)
-    i += 1
-        
+
+primes = [3]
+
+targetNumber = 600 #475143
+i = 3
+
+while i < math.ceil(targetNumber/2)+1:
+
+    for j in primes:       
+        if i % j == 0:
+            break
+        if j == primes[-1]:
+            primes.append(i)
+    i += 2;
+
+primes.sort(key=None, reverse=True)               
+for k in primes:
+    if targetNumber % k == 0:
+        print(k)
+        break      
+      
 tEnd = time.clock()
 
 print(tEnd - tStart)
 
-
-        
         
  
