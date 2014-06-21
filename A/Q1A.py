@@ -13,3 +13,9 @@ while a < 1000:
         print(a)
     # Got errors trying to increment using a++, a = a++ etc.
     a += 1
+    
+'''
+Old boy comments:
+Use of while loop good, conciser than for loop in this case
+Prints all the multiples of 3 and 5 but doesn't sum them
+'''
