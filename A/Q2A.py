@@ -12,8 +12,13 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 lHOperand = 1
 rHOperand = 2
-fibSum = 0
+fibSum = rHOperand
+fibRunningTotal = 0
 
-while lHOperand <= 89:
+while fibSum < 4000000:
+    if fibSum % 2 == 0:
+        fibRunningTotal += fibSum
+        print(fibRunningTotal)
     fibSum = lHOperand + rHOperand
-    
+    lHOperand = rHOperand
+    rHOperand = fibSum
