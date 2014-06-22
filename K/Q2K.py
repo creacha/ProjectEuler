@@ -8,9 +8,11 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 '''
 
+
 a = 1
 b = 2
 
+#Kinda cheating, but if fibTotal = b at this point, you get your first even number added to fibTotal.
 fibNum = 0
 fibTotal = 0
 
@@ -18,6 +20,7 @@ while fibNum < 4000000:
     fibNum = a + b
     a = b
     b= fibNum
+    #Also, check for evenness should happen earlier in loop.
     if fibNum % 2 == 0:
         fibTotal += fibNum
         
