@@ -7,6 +7,7 @@ tStart = time.clock()
 
 cutOff = 2000000
 tfList = cutOff * [True]
+primeSum = 1
 index = 2
 k = 0
 
@@ -21,7 +22,8 @@ for i in range(2,math.ceil(math.sqrt(cutOff))):
         k = 0
 for i in range(len(tfList)):
     if tfList[i] == True:
-        print(i+1)
+        primeSum += i+1
+print(primeSum)
 
 tEnd = time.clock()
 
