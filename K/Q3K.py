@@ -22,7 +22,7 @@ while i < math.ceil(targetNumber/2)+1:
             break
         if j == primes[-1]:
             primes.append(i)
-    i += 2;
+    i += 2
 
 primes.sort(key=None, reverse=True)               
 for k in primes:
