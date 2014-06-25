@@ -1,6 +1,16 @@
 __author__ = 'LOVER'
 
 '''
+Couple things:
+1. Ya don't need to increment i in ya loop, the loop will do it itself
+2. You actually need to reset i to 2 each time you 'branch' the factor tree, to see why run it with 250 as candidate number
+solution comes out as 25, because you've already passed 5 as a possible divisor by that point
+
+3. Idea is fuckn awesome :)
+
+'''
+
+'''
 The prime factors of 13195 are 5, 7, 13 and 29.
 
 What is the largest prime factor of the number 600851475143 ?
