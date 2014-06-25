@@ -17,25 +17,50 @@ What is the largest prime factor of the number 600851475143 ?
 '''
 #a list of the prime factors for the candidate number
 listOfPrimes = []
-#also had it working fine with an int.
-CANDIDATENUM = 600851475143
+CANDIDATENUM = 24
 x = CANDIDATENUM
 
-#candidate number will be scanned a maximum of self times. Cheated and skipped 1.
-for i in range(2, x):
+#candidate number will be scanned a maximum of self times.
+for i in range(1, x):
+    print("started iteration")
     #if i is a factor of the candidate number
-    if x % i == 0:
-        #it goes in the list of primes
-        listOfPrimes.append(i)
-        #candidate number is then made much smaller, just like a factor tree. I watched a video on khan academy lol.
-        #you're never going to be dividing by a smaller number than the last factor you safely got out... (see after elif)
-        x /= i
-    #then when you get up to the largest prime x should divide out to 1.
-    elif x == 1.0:
-        print(listOfPrimes[-1])
+    if x % i == 0 and i != 1:
+        print("factor found")
+        if len(listOfPrimes) == 0:
+            print("length of list was zero")
+            listOfPrimes.append(i)
+            print("first factor added")
+            print(listOfPrimes)
+            x //= i
+            print("divided x by first factor")
+            print(x)
+            i += 1
+            print("incremented from first factor if")
+            print(i)
+        elif len(listOfPrimes) != 0:
+            print("length of list was longer than zero")
+            for scanner in range(0, len(listOfPrimes)):
+                print("began scanning list")
+                print(scanner)
+                print(i)
+                print(listOfPrimes[scanner])
+                if i % listOfPrimes[scanner] == 0:
+                    print("found a factor of list member")
+                    i //= listOfPrimes[scanner]
+                    x //= listOfPrimes[scanner]
+                    print("divided x by list member")
+            print("finished scanning list")
+            #experimenting...
+            for scanner in range(0, len(listOfPrimes)):
+                if i != listOfPrimes[scanner]:
+                    listOfPrimes.append(i)
+            print("another factor added")
+            print(listOfPrimes)
+            i += 1
+            print("incremented from first elif")
+    elif x == 1:
+        print(listOfPrimes)
         break
-    #...so you can go ahead and increment.
-    i += 1
 
 
 """
