@@ -3,33 +3,57 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 
 What is the largest prime factor of the number 600851475143 ?
 '''
-from EulerMethods import EulerMethodsClass
-import math
 import time
-
-#targetNumber = 600851475143;
+import math
 tStart = time.clock()
+#a list of the prime factors for the candidate number
+cutOff = math.ceil(math.sqrt(600851475143))
+tfList = cutOff * [True]
+index = 1
+k = 0
 
-primes = [3]
+for i in range(2,cutOff//2):
+    if tfList[i-1] == True:       
+        while index <= cutOff:  
+            tfList[index-1] = False
+            index = int(math.pow(i,2) + k*i)
+            k += 1
+        index = 1
+        k = 0
 
-targetNumber = 600 #475143
-i = 3
+processing = True
+candidateNum = 600851475143
+x = candidateNum
+divisorList = []
+k = 0
 
-while i < math.ceil(targetNumber/2)+1:
+while processing:
+    k += 1
+    if tfList[k-1] == True:
+        if x % k == 0:
+            divisorList.append(k)
+            x //= k
+            k = 1
+        if x == 1:
+            print(divisorList[-1])
+            processing = False
 
-    for j in primes:       
-        if i % j == 0:
-            break
-        if j == primes[-1]:
-            primes.append(i)
-    i += 2;
-
-primes.sort(key=None, reverse=True)               
-for k in primes:
-    if targetNumber % k == 0:
-        print(k)
-        break      
-      
 tEnd = time.clock()
 
 print(tEnd - tStart)
+
+"""
+http://www.khanacademy.org/math/pre-algebra/factors-multiples/prime_factorization/v/prime-factorization
+
+it was a visual thing!
+
+600851475143
+    /   \
+  71  8462696833
+          /   \
+         839  10086647
+                /  \
+              1471 6857
+
+you're only ever iterating through the (rapidly-shrinking) right hand side.
+"""
