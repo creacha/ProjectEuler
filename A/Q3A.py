@@ -17,12 +17,12 @@ What is the largest prime factor of the number 600851475143 ?
 '''
 #a list of the prime factors for the candidate number
 listOfPrimes = []
-CANDIDATENUM = 24
+CANDIDATENUM = 41
 x = CANDIDATENUM
 
 #candidate number will be scanned a maximum of self times.
 for i in range(1, x):
-    print("started iteration")
+    print(i)
     #if i is a factor of the candidate number
     if x % i == 0 and i != 1:
         print("factor found")
@@ -44,21 +44,21 @@ for i in range(1, x):
                 print(scanner)
                 print(i)
                 print(listOfPrimes[scanner])
-                if i % listOfPrimes[scanner] == 0:
+                #I'm convinced there's no 'returning' to 2. WHILE x is divisible by 2, continue to divide by 2 then increment.
+                while i % listOfPrimes[scanner] == 0:
                     print("found a factor of list member")
                     i //= listOfPrimes[scanner]
                     x //= listOfPrimes[scanner]
                     print("divided x by list member")
             print("finished scanning list")
             #experimenting...
-            for scanner in range(0, len(listOfPrimes)):
-                if i != listOfPrimes[scanner]:
-                    listOfPrimes.append(i)
+            if i != 1:
+                listOfPrimes.append(i)
             print("another factor added")
             print(listOfPrimes)
             i += 1
             print("incremented from first elif")
-    elif x == 1:
+    if x == 1:
         print(listOfPrimes)
         break
 
